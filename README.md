@@ -1,114 +1,98 @@
-# Website Builder Simple Agent
+# Google ADK Agent Samples
 
-This project is a minimal Agent Development Kit (ADK) app that uses a single LLM-powered agent to generate complete HTML+CSS+JS web pages from natural language prompts. The generated content is saved to a timestamped `.html` file and can be opened in a browser.
+Welcome to The AI Language official repository for Google Agent Development Kit (ADK) sample applications. This collection is designed to provide practical, hands-on examples of how to build powerful and creative agents using the ADK framework.
 
----
-
-## 📦 Features
-
-- ✅ Gemini-powered LLM agent using Google ADK
-- ✅ Takes natural language queries like “Create a landing page with a red button”
-- ✅ Generates clean, complete HTML pages with inline CSS/JS
-- ✅ Saves output as a timestamped `.html` file
-- ✅ Easily extendable with sub-agents and more tools
+The goal of this repository is to showcase different architectural patterns—from simple, single-purpose agents to complex, multi-agent systems. Each project is self-contained and includes a detailed `README.md` with specific setup and usage instructions.
 
 ---
 
-## 📂 Project Structure
+## 🌱 Available Agent Projects
 
-```text
-version_1_website_builder_simple
-├── website_builder_simple/        # Main agent
-│   ├── agent.py
-│   ├── __init__.py
-│   ├── instructions.txt
-│   └── description.txt
-├── tools/
-│   ├── __init__.py
-│   └── file_writer_tool.py        # Tool to write HTML files
-├── utils/
-│   ├── __init__.py
-│   └── file_loader.py             # Utility for reading prompt files
-├── output/                        # Auto-generated folder with HTML outputs
-└── __init__.py                    # Exposes `root_agent` to ADK
-```
+This collection is actively growing. Below are the current agent examples available.
+
+### 1. Simple Website Builder (`version_1_website_builder_simple`)
+
+*   **Architecture:** Single-Agent System
+*   **Description:** A minimal ADK application featuring a single LLM-powered agent. It takes a natural language prompt (e.g., "create a page with a blue button") and generates a complete, self-contained HTML file.
+*   **Best for:** Understanding the fundamentals of an ADK agent, including instructions, tools, and basic I/O.
+*   **➡️ For detailed instructions, see the `README.md` inside the [`version_1_website_builder_simple/`](./version_1_website_builder_simple/) directory.**
+
+### 2. Sequential Website Builder (`version_2_sequential_website_agent`)
+
+*   **Architecture:** Multi-Agent, Sequential Orchestration
+*   **Description:** A more advanced system where a "root" agent orchestrates a team of specialized agents in a sequence to build a website. This mimics a real-world development workflow: `Requirements Writer` -> `Designer` -> `Code Writer`.
+*   **Best for:** Learning how to build complex workflows by chaining agents together, where the output of one agent becomes the input for the next.
+*   **➡️ For detailed instructions, see the `README.md` inside the [`version_2_sequential_website_agent/`](./version_2_sequential_website_agent/) directory.**
+
+We will be adding more agents over time to demonstrate other patterns like parallel execution, agents with memory, and more complex tool usage.
 
 ---
 
-## 🚀 Quickstart
+## 🚀 General Setup Instructions
 
-### 1. Clone the Repo
+While each project has its own specific dependencies, the following setup steps are common to all agents in this repository.
+
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/theailanguage/adk_samples.git
 ```
 
-### 2. Set Up Python Environment
-Required - Python 3.11+, uv, vs code and git
+### 2. Set Up Your API Key
+
+To use the agents, you need a Google API key.
+
+1.  Navigate into the specific project folder you want to run (e.g., `version_2_sequential_website_agent`).
+2.  Create a file named `.env` in that directory.
+3.  Add your API key to the `.env` file:
+
+    ```env
+    GOOGLE_API_KEY=your-google-api-key
+    GOOGLE_GENAI_USE_VERTEXAI=FALSE
+    ```
+
+You can get a free API key from [Google AI Studio](https://makersuite.google.com/app/apikey).
+
+### 3. Set Up the Python Environment
+
+Each project should be run in its own virtual environment to manage dependencies.
+
 ```bash
-cd adk_samples/version_1_website_builder_simple
+# Navigate to the project you want to run
+cd path/to/specific_agent_project
+
+# Create and activate a virtual environment using uv
 uv venv
-source .venv/bin/activate  # or .venv\Scripts\activate.bat on Windows
+source .venv/bin/activate  # On Windows, use: .venv\Scripts\activate.bat
+
+# Install the project's dependencies
 uv sync --all-groups
 ```
 
-### 3. Add Your API Key
-
-Create a `.env` file in the project root inside version_1_website_builder_simple:
-
-```env
-GOOGLE_API_KEY=your-google-api-key
-GOOGLE_GENAI_USE_VERTEXAI=FALSE
-```
-
-You can get your API key from [Google AI Studio](https://makersuite.google.com/app/apikey).
-
 ---
 
-### 4. Run the Agent UI
+## 🤖 Running an Agent
 
-```bash
-cd adk_samples/version_1_website_builder_simple
-adk web ./agents
-```
+After completing the setup for a specific project, you can run its agent(s) using the ADK web interface.
 
-Then open `http://localhost:8000` in your browser and select `website_builder_simple` from the agents list.
+1.  Make sure you are in the project's root directory in your terminal.
+2.  Launch the ADK web server:
 
----
+    ```bash
+    # For projects with a flat agent structure (like v1)
+    cd version_1_website_builder_simple/
+    adk web ./agents
 
-## 💬 Example Prompt
+    # For projects with a main.py entrypoint (like v2)
+    cd version_2_sequential_website_agent/
+    adk web ./agents
+    ```
 
-```
-Create a webpage with a pink background and a green heading that says Hello ADK! Write this to an output file using tht tool.
-```
-
-This will generate a complete `.html` file in the `output/` folder.
-
----
-
-## 🧠 How It Works
-
-- The agent loads instructions from `instructions.txt`
-- When you type a prompt, the agent generates the HTML
-- It uses the `write_to_file` tool to save it
-- Output file: `output/240610_132455_generated_page.html`
-
----
-
-## 🛠️ Extending the Project
-
-You can easily:
-- Add sub-agents (e.g. requirement writer, layout planner)
-- Add new tools (e.g. browser launcher, image fetcher)
-- Support more output formats (e.g. React, Tailwind)
+3.  Open your browser and go to `http://localhost:8000`.
+4.  Select the desired agent from the dropdown menu and start interacting with it!
 
 ---
 
 ## 📜 License
 
-This repository is licensed under the **GNU General Public License v3.0**.
-See the [LICENSE](./LICENSE) file for full details.
-
----
-
-Happy building with ADK! 🛠
+This repository and the code within are licensed under the **GNU General Public License v3.0**. See the `LICENSE` file for full details.
