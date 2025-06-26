@@ -90,6 +90,16 @@ After completing the setup for a specific project, you can run its agent(s) usin
 
 3.  Open your browser and go to `http://localhost:8000`.
 4.  Select the desired agent from the dropdown menu and start interacting with it!
+---
+
+### **Four Ways to Run Your ADK Agent**
+
+| S.No. | Method & Command | Description | When to Use |
+|------:|------------------|-------------|-------------|
+| 1 | **ADK Web**  <br>`adk web ./agents` | - Launches a browser-based UI | - Ideal for debugging or quick demos |
+| 2 | **ADK API Server** <br>`adk api_server ./agents` | - Starts an HTTP API server | - Useful for REST API-based automation. |
+| 3 | **Programmatic Python Script** <br>`uv run python3 -m agent_runner` | - Fully code-driven interaction using Python and the ADK SDK | - Ideal for building your own CLI tools or backend pipelines |
+| 4 | **ADK CLI Run** <br>`adk run agents/root_website_builder` | - Command-line way to run a specific agent directly | - Great for quick runs or testing |
 
 ---
 
