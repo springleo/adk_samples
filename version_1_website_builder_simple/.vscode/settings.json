@@ -2,6 +2,6 @@
 {
     "python.analysis.extraPaths": ["./"],
     "python.autoComplete.extraPaths": ["./"],
-    "python.terminal.activateEnvironment": false
+    "python.terminal.activateEnvironment": true,
 }
   

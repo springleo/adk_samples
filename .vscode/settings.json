@@ -1,7 +1,6 @@
 // .vscode/settings.json
 {
-    "python.analysis.extraPaths": ["./"],
-    "python.autoComplete.extraPaths": ["./"],
-    "python.terminal.activateEnvironment": false
+  "python.analysis.extraPaths": ["./"],
+  "python.autoComplete.extraPaths": ["./"],
+  "python.terminal.activateEnvironment": true,
 }
-  
