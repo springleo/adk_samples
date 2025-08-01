@@ -24,6 +24,13 @@ This collection is actively growing. Below are the current agent examples availa
 *   **Best for:** Learning how to build complex workflows by chaining agents together, where the output of one agent becomes the input for the next.
 *   **➡️ For detailed instructions, see the `README.md` inside the [`version_2_sequential_website_agent/`](./version_2_sequential_website_agent/) directory.**
 
+### 3. Intelligent Research-Driven Website Builder (`version_3_parallel_research_agent`)
+
+*   **Architecture:** Multi-Agent, Sequential + Parallel Orchestration
+*   **Description:** An advanced system that combines intelligent research capabilities with parallel processing. Takes a simple topic input and transforms it into a comprehensive research report webpage through a 6-agent pipeline: `Questions Generator` -> `5 Parallel Research Agents` -> `Query Generator` -> `Requirements Writer` -> `Designer` -> `Code Writer`.
+*   **Best for:** Learning parallel agent execution, Google search integration, research-driven development, and complex multi-agent orchestration with both sequential and parallel patterns.
+*   **➡️ For detailed instructions, see the `README.md` inside the [`intelligent_research_website_builder/`](./intelligent_research_website_builder/) directory.**
+
 We will be adding more agents over time to demonstrate other patterns like parallel execution, agents with memory, and more complex tool usage.
 
 ---
@@ -46,10 +53,10 @@ To use the agents, you need a Google API key.
 2.  Create a file named `.env` in that directory.
 3.  Add your API key to the `.env` file:
 
-    ```env
-    GOOGLE_API_KEY=your-google-api-key
-    GOOGLE_GENAI_USE_VERTEXAI=FALSE
-    ```
+```env
+GOOGLE_API_KEY=your-google-api-key
+GOOGLE_GENAI_USE_VERTEXAI=FALSE
+```
 
 You can get a free API key from [Google AI Studio](https://makersuite.google.com/app/apikey).
 
@@ -78,18 +85,19 @@ After completing the setup for a specific project, you can run its agent(s) usin
 1.  Make sure you are in the project's root directory in your terminal.
 2.  Launch the ADK web server:
 
-    ```bash
-    # For projects with a flat agent structure (like v1)
-    cd version_1_website_builder_simple/
-    adk web ./agents
+```bash
+# For projects with a flat agent structure (like v1)
+cd version_1_website_builder_simple/
+adk web ./agents
 
-    # For projects with a main.py entrypoint (like v2)
-    cd version_2_sequential_website_agent/
-    adk web ./agents
-    ```
+# For projects with a main.py entrypoint (like v2)
+cd version_2_sequential_website_agent/
+adk web ./agents
+```
 
 3.  Open your browser and go to `http://localhost:8000`.
 4.  Select the desired agent from the dropdown menu and start interacting with it!
+
 ---
 
 ### **Four Ways to Run Your ADK Agent**
