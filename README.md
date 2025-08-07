@@ -31,6 +31,13 @@ This collection is actively growing. Below are the current agent examples availa
 *   **Best for:** Learning parallel agent execution, Google search integration, research-driven development, and complex multi-agent orchestration with both sequential and parallel patterns.
 *   **➡️ For detailed instructions, see the `README.md` inside the [`intelligent_research_website_builder/`](./intelligent_research_website_builder/) directory.**
 
+### 4. Cloud-Deployable Research Website Builder (`version_4_deploy_to_gcloud`)
+
+*   **Architecture:** Multi-Agent, Sequential + Parallel Orchestration with Cloud Deployment
+*   **Description:** An enhanced version of the intelligent research-driven website builder specifically configured for Google Cloud Run deployment. Features the same sophisticated 6-agent research pipeline but includes deployment infrastructure with FastAPI integration, containerization, and cloud-ready configuration.
+*   **Best for:** Learning how to deploy ADK multi-agent systems to production cloud environments, understanding containerization of agent workflows, and building scalable cloud-native agent applications.
+*   **➡️ For detailed instructions, see the `README.md` inside the [`version_4_deploy_to_gcloud/`](./version_4_deploy_to_gcloud/) directory.**
+
 We will be adding more agents over time to demonstrate other patterns like parallel execution, agents with memory, and more complex tool usage.
 
 ---
