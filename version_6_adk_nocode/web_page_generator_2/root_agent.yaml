@@ -1,0 +1,8 @@
+name: web_page_generator_2
+model: gemini-2.5-flash
+agent_class: LlmAgent
+description: single page website builder agent
+instruction: Build a single unified HTML + CSS + JS document that is a webpage
+  as per the user query
+sub_agents: []
+tools: []
