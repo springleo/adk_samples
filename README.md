@@ -38,6 +38,21 @@ This collection is actively growing. Below are the current agent examples availa
 *   **Best for:** Learning how to deploy ADK multi-agent systems to production cloud environments, understanding containerization of agent workflows, and building scalable cloud-native agent applications.
 *   **➡️ For detailed instructions, see the `README.md` inside the [`version_4_deploy_to_gcloud/`](./version_4_deploy_to_gcloud/) directory.**
 
+### 5. Config-Based AI Tutor Agent (`version_5_config_type`)
+
+*   **Architecture:** Multi-Agent, Config-Based
+*   **Description:** Demonstrates the config-based agent feature of the ADK. The agent logic, structure, and instructions are defined entirely in YAML files, requiring zero Python code for the core agent implementation. A root agent routes questions to specialized `python_tutor_agent` or `physics_tutor_agent` sub-agents.
+*   **Best for:** Learning how to create modular, declarative, and code-light AI systems using YAML configuration.
+*   **➡️ For detailed instructions, see the `README.md` inside the [`version_5_config_type/`](./version_5_config_type/) directory.**
+
+### 6. No-Code Visual Agent Builder (`version_6_adk_nocode`)
+
+*   **Architecture:** No-Code, Visual Builder
+*   **Description:** Introduces the ADK's no-code visual builder (`adk web`), a canvas-based UI for creating agents without writing Python code. The example walks through creating a simple web page generator using both manual configuration and the experimental Gemini-powered Builder Assistant.
+*   **Best for:** Getting started with the visual agent builder, understanding the no-code/low-code capabilities of the ADK, and seeing how the UI maps to YAML agent configurations.
+*   **➡️ For detailed instructions, see the `README.md` inside the [`version_6_adk_nocode/`](./version_6_adk_nocode/) directory.**
+
+
 We will be adding more agents over time to demonstrate other patterns like parallel execution, agents with memory, and more complex tool usage.
 
 ---
