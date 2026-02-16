@@ -34,7 +34,7 @@ requirements_writer_agent = LlmAgent(
     
     # AI model to use - Gemini 2.5 Flash Lite for detailed requirement analysis and generation
     # Note: This uses 2.5 lite for more sophisticated requirement writing
-    model = "gemini-2.5-flash-lite",
+    model = "gemini-flash-latest",
     
     # Load detailed instructions from external text file
     # Instructions contain systematic approach for converting queries to webpage requirements

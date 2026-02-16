@@ -89,7 +89,7 @@ First, we will create an agent manually using the builder's configuration panel.
 1.  **Create a New Agent:** In the web UI, click the **`+`** button next to the agent selection dropdown. You will be prompted to name your new agent. Enter `web_page_generator_2` and click "Create".
 2.  **Configure the Agent:** You will be taken to the Visual Builder canvas. A configuration panel for your new agent will appear. Fill it out as follows:
     *   **Agent Type:** `LlmAgent` (This is the default for a new agent).
-    *   **Model:** `gemini-2.5-flash`.
+    *   **Model:** `gemini-flash-latest`.
     *   **Description:** `single page website builder agent`.
     *   **Instruction:** `Build a single unified HTML + CSS + JS document that is a webpage as per the user query`.
 3.  **Save the Agent:** Click the **"Save"** button. You will be redirected back to the main chat interface.

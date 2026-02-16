@@ -25,7 +25,7 @@ from utils.file_loader import load_instructions_file
 root_agent = LlmAgent(
     name="website_builder_simple",  # Unique name for the agent; also shown in the UI.
 
-    model="gemini-2.0-flash-001",   # The ID of the Gemini model used to generate responses.
+    model="gemini-flash-latest",   # The ID of the Gemini model used to generate responses.
 
     # The prompt/instruction that tells the agent what kind of behavior to exhibit.
     # It is loaded from a file

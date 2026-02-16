@@ -34,7 +34,7 @@ questions_generator_agent = LlmAgent(
     name = "questions_generator_agent",
     
     # AI model to use - Gemini 2.5 Flash Lite for fast, high-quality responses
-    model = "gemini-2.5-flash-lite",
+    model = "gemini-flash-latest",
     
     # Load detailed instructions from external text file
     # This keeps the code clean and allows easy modification of agent behavior

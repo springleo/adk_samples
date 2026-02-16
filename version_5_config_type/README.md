@@ -109,7 +109,7 @@ This project demonstrates an elegant and simple multi-agent workflow orchestrate
     -   If it's a coding question, it passes control to the `python_tutor_agent`.
     -   If it's a science question, it passes control to the `physics_tutor_agent`.
 4.  **Specialized Response**: The selected tutor agent (e.g., `physics_tutor_agent`) receives the prompt. It then uses its own highly specific `instruction` (e.g., "Explain physics laws and theories clearly with real-world examples") to generate a detailed, expert-level response.
-5.  **Inheritance**: The sub-agents automatically inherit the `model` (`gemini-1.5-flash`) from the `root_agent`, reducing configuration duplication.
+5.  **Inheritance**: The sub-agents automatically inherit the `model` (`gemini-flash-latest`) from the `root_agent`, reducing configuration duplication.
 
 This entire sophisticated workflow is achieved without a single line of Python agent code, highlighting the power and simplicity of the ADK's config-based approach.
 

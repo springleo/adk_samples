@@ -1,5 +1,5 @@
 name: web_page_generator
-model: gemini-2.5-flash
+model: gemini-flash-latest
 agent_class: LlmAgent
 instruction: You are the root agent that coordinates other agents.
 sub_agents: []
