@@ -18,7 +18,7 @@ from google.oauth2.credentials import Credentials
 from google.adk.auth.auth_credential import AuthCredential
 
 def list_gmail_messages(
-    credential: AuthCredential,
+    credential: Optional[AuthCredential] = None,
     days: int = 1,
     sender: str = None,
     keyword: str = None,
@@ -28,7 +28,7 @@ def list_gmail_messages(
     Fetches a list of emails from Gmail based on criteria.
 
     Args:
-        credential: The OAuth2 credential provided by ADK.
+        credential: The OAuth2 credential provided by ADK (automatically injected by AuthenticatedFunctionTool).
         days: Number of days back to search (default 1).
         sender: Filter by sender email (optional).
         keyword: Search keyword in subject or body (optional).
@@ -37,6 +37,9 @@ def list_gmail_messages(
     Returns:
         A list of dictionaries containing email metadata (id, subject, from, date, snippet).
     """
+    if not credential or not credential.oauth2:
+        return [{"error": "Authorization Required. Please click the Authorize button to proceed."}]
+        
     creds = Credentials(
         token=credential.oauth2.access_token,
         refresh_token=credential.oauth2.refresh_token,
@@ -82,17 +85,20 @@ def list_gmail_messages(
     
     return email_list
 
-def get_message_content(credential: AuthCredential, message_id: str) -> str:
+def get_message_content(message_id: str, credential: Optional[AuthCredential] = None) -> str:
     """
     Fetches the full body of a specific email message.
 
     Args:
-        credential: The OAuth2 credential provided by ADK.
         message_id: The unique ID of the Gmail message.
+        credential: The OAuth2 credential provided by ADK (automatically injected by AuthenticatedFunctionTool).
 
     Returns:
         The text content of the email.
     """
+    if not credential or not credential.oauth2:
+        return "Authorization Required. Please click the Authorize button to proceed."
+        
     creds = Credentials(
         token=credential.oauth2.access_token,
         refresh_token=credential.oauth2.refresh_token,

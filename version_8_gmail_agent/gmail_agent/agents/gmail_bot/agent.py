@@ -13,6 +13,8 @@
 # limitations under the License.
 
 import os
+import sys
+import logging
 from datetime import datetime
 from dotenv import load_dotenv
 
@@ -30,6 +32,12 @@ load_dotenv()
 
 OAUTH_CLIENT_ID = os.getenv("OAUTH_CLIENT_ID")
 OAUTH_CLIENT_SECRET = os.getenv("OAUTH_CLIENT_SECRET")
+
+# Check if environment variables are set
+if not OAUTH_CLIENT_ID or not OAUTH_CLIENT_SECRET:
+    logging.error("OAUTH_CLIENT_ID or OAUTH_CLIENT_SECRET is missing from environment variables.")
+    # In a real app, you might want to exit or handle this more gracefully
+    # sys.exit(1)
 
 # Define Gmail Authentication Configuration
 gmail_auth_config = AuthConfig(
@@ -51,6 +59,7 @@ gmail_auth_config = AuthConfig(
             client_secret=OAUTH_CLIENT_SECRET,
         ),
     ),
+    credential_key="gmail_api_auth" # Essential for ADK Web UI to track authentication state
 )
 
 def update_time(callback_context: CallbackContext):
