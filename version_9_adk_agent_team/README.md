@@ -65,29 +65,11 @@ GEMINI_API_KEY="your_free_gemini_api_key_here"
 
 ---
 
-### 1. Interactive CLI Mode
-To start planning a trip and talk with the coordinator directly in your terminal:
-```bash
-adk run agents/travel_planner
-```
-
-### 2. Verbose CLI Mode (For debugging)
-To watch tool calls, state transitions, and agent context-switching:
-```bash
-adk run -v agents/travel_planner
-```
-
-### 3. Web UI & Diagnostics
+### 1. ADK Web UI
 To inspect active sessions, monitor LLM request/response payloads, and review trace spans:
 ```bash
-adk web agents/travel_planner
+adk web ./agents
 ```
-Open **`http://localhost:8000/dev-ui/`** in your browser.
+Open **`http://127.0.0.1:8000`** in your browser.
 
 ---
-
-## 🛠️ Debugging & Fixing Key Implementation Issues
-
-1. **Import Errors**: All agent scripts must import `Agent` from `google.adk.agents` instead of `google.adk` to prevent `ImportError`.
-2. **Weather Input Schema**: `weather_checker` requires a structured `WeatherInput` schema so the coordinator can pass the `destination` parameter cleanly.
-3. **Chat Handoffs**: Sub-agents running in `chat` mode (like `itinerary_agent`) must use the framework's native `transfer_to_agent` tool rather than a custom mock function to return control to the parent coordinator.
