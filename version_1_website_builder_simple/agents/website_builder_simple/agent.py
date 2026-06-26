@@ -39,3 +39,23 @@ root_agent = LlmAgent(
     # In this case, just one: a function that writes the generated HTML to a file.
     tools=[write_to_file],
 )
+
+# Bonus - here is how you can use claude instead of gemini. Uncomment this block to use
+# Make sure to run `uv add anthropic`
+# and set the `ANTHROPIC_API_KEY` environment variable in your `.env` file first.
+"""
+from google.adk.models import LLMRegistry
+from google.adk.models.anthropic_llm import AnthropicLlm
+
+# 1. Register AnthropicLlm to support using standard Anthropic API key
+LLMRegistry.register(AnthropicLlm)
+
+# 2. Redefine the root agent with the Claude model (this re-assignment overrides the previous one)
+root_agent = LlmAgent(
+    name="website_builder_simple",
+    model="claude-sonnet-4-6",
+    instruction=load_instructions_file("agents/website_builder_simple/instructions.txt"),
+    description=load_instructions_file("agents/website_builder_simple/description.txt"),
+    tools=[write_to_file],
+)
+"""
