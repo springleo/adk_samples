@@ -33,7 +33,7 @@ query_generator_agent = LlmAgent(
     name = "query_generator_agent",
     
     # AI model to use - Gemini 2.5 Flash Lite for fast, high-quality synthesis
-    model = "gemini-flash-latest",
+    model = "gemini-2.5-flash",
     
     # Load detailed instructions from external text file
     # Instructions contain logic for synthesizing multiple research outputs into one query
